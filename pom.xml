@@ -77,9 +77,10 @@
         <javaee-endorsed-api>7.0</javaee-endorsed-api>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.test.failure.ignore>true</maven.test.failure.ignore>
+        <gst.application.prefix>gst-todo-list:</gst.application.prefix>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <gst.application.prefix>gst-todo-list:</gst.application.prefix>
     </properties>
 
     <dependencyManagement>
@@ -132,7 +133,11 @@
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
+                        <optimize>true</optimize>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
                     </configuration>
+                    <inherited>true</inherited>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
