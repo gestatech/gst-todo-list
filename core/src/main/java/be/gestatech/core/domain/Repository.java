@@ -1,4 +1,4 @@
-package be.gestatech.core.standard;
+package be.gestatech.core.domain;
 
 import java.io.Serializable;
 

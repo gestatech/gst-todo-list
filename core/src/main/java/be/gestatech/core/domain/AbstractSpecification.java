@@ -1,4 +1,4 @@
-package be.gestatech.core.standard;
+package be.gestatech.core.domain;
 
 /**
  * Created by amuri on 5/17/2017.

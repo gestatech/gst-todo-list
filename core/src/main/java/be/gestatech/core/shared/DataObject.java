@@ -1,4 +1,4 @@
-package be.gestatech.core.standard.shared;
+package be.gestatech.core.shared;
 
 import java.io.Serializable;
 

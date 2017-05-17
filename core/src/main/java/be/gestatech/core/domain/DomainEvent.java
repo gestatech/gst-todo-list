@@ -1,6 +1,6 @@
-package be.gestatech.core.standard.domain;
+package be.gestatech.core.domain;
 
-import be.gestatech.core.standard.shared.DataObject;
+import be.gestatech.core.shared.DataObject;
 
 /**
  * Created by amuri on 5/17/2017.
