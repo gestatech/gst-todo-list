@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>be.gestatech</groupId>
+    <artifactId>gst-todo-list</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>gst-todo-list-parent-pom</name>
+    <description>${gst.application.prefix} parent pom.</description>
+    <url>https://github.com/gestatech/gst-todo-list</url>
+    <inceptionYear>2017</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://raw.githubusercontent.com/gestatech/gst-dashboard/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Gestatech</name>
+        <url>http://www.gestatech.be</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>gestatech</id>
+            <email>fariala.amuri@gestatech.be</email>
+            <name>Fariala Amuri</name>
+            <url>https://github.com/gestatech</url>
+            <organization>Gestatech</organization>
+            <organizationUrl>http://www.gestatech.be</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Brussels</timezone>
+            <properties>
+                <!--picUrl>http://www.example.com/jdoe/pic</picUrl-->
+            </properties>
+        </developer>
+        <developer>
+            <name>${project.organization.name}</name>
+            <organization>${project.organization.name}</organization>
+            <organizationUrl>${project.organization.url}</organizationUrl>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <email>fariala.amuri@gestatech.be</email>
+            <name>Fariala Amuri</name>
+            <url>https://github.com/gestatech</url>
+            <organization>gestatech</organization>
+            <organizationUrl>http://www.gestatech.be</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Brussels</timezone>
+        </contributor>
+    </contributors>
+
+    <scm>
+        <connection>scm:git:git@github.com:gestatech/gst-todo-list.git</connection>
+        <developerConnection>scm:git:git@github.com:gestatech/gst-todo-list.git</developerConnection>
+        <url>https://github.com/gestatech/gst-todo-list</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <ejbVersion.version>3.2</ejbVersion.version>
+        <javaee-api.version>7.0</javaee-api.version>
+        <javaee-endorsed-api>7.0</javaee-endorsed-api>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <gst.application.prefix>gst-todo-list:</gst.application.prefix>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.10.19</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>ear</module>
+        <module>core</module>
+        <module>data</module>
+        <module>ejb</module>
+        <module>jsf</module>
+        <module>html</module>
+    </modules>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.10.1</version>
+                    <configuration>
+                        <version>7</version>
+                        <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>1.4</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
